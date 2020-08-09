@@ -23,7 +23,10 @@ public class InternetStorePage {
             , buttonAddToCart = $(".add-to-cart-btn")
             , buttonGoToCart = $(".r-bh-panel-wrapper .link2cart")
             , inputCountProductInCart = $(".quantityinput")
-            , labelNamePructInCart = $(".name:nth-child(1) > a");
+            , labelNamePructInCart = $(".name:nth-child(1) > a")
+            , errorMessage = $(".r-availability-size-error")
+            , buttonDeleteProduct = $(".btn-remove")
+            , infoMessageProductDelete = $(".cartempty");
 
 
     public String getBaseURL() {
@@ -55,6 +58,13 @@ public class InternetStorePage {
         this.buttonAddToCart.click();
     }
 
+    public void makeOrderWithoutSize(){
+        this.linkBeachWear.click();
+        this.linkBikiniWearBottom.click();
+        this.linkChoiceProduct.click();
+        this.buttonAddToCart.click();
+    }
+
     public void gotoCart() {
         this.buttonGoToCart.click();
     }
@@ -64,5 +74,17 @@ public class InternetStorePage {
         assertEquals("1", this.inputCountProductInCart.getValue());
     }
 
+    public void checkSelectSize(){
+        this.errorMessage.exists();
+    }
+
+    public void deleteProductFromCart(){
+        this.buttonDeleteProduct.click();
+    }
+
+    public void checkDeletingProduct(){
+        this.infoMessageProductDelete.exists();
+        assertEquals("ВАША КОРЗИНА ПУСТА.",this.infoMessageProductDelete.getText());
+    }
 
 }
