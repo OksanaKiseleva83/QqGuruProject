@@ -63,5 +63,26 @@ public class WorkWithInternetStoreCart extends SelenideBaseTest {
 
     }
 
+    /**
+     * проверка, что при нажатии на меню Sale осуществляется переход к скидочным товарам, а не в основное меню
+     */
+    @Test
+    public void testGotoSaleProducts(){
+        InternetStorePage pageRoxyRussiaStore = new InternetStorePage("https://www.roxy-russia.ru/");
+        pageRoxyRussiaStore.openMainPageInternetStore();
+        pageRoxyRussiaStore.goToSaleDepartment();
+        pageRoxyRussiaStore.checkSalePage();
+    }
+
+    /**
+     * проверка, что страница техподдержки открылась
+     */
+    @Test
+    public void testGotoHelp(){
+        InternetStorePage pageRoxyRussiaStore = new InternetStorePage("https://www.roxy-russia.ru/");
+        pageRoxyRussiaStore.openMainPageInternetStore();
+        pageRoxyRussiaStore.goToHelp();
+        pageRoxyRussiaStore.pageHeplIsOpened();
+    }
 
 }
