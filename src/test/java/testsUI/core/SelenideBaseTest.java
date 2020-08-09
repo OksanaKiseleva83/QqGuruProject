@@ -1,7 +1,7 @@
-package core;
+package testsUI.core;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,7 +24,7 @@ public class SelenideBaseTest {
         return;
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
 
         final DesiredCapabilities capabilities = chrome();
@@ -32,10 +32,9 @@ public class SelenideBaseTest {
         options.addArguments("--lang=en_EN", "--disable-notifications", "--window-size=1920,1080", "--disable-system-timezone-automatic-detection", "--local-timezone");
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         capabilities.setPlatform(Platform.WINDOWS);
-        WebDriver driver = new ChromeDriver(options);
     }
 
-    @After
+    @AfterEach
     public void after() {
         Selenide.clearBrowserCookies();
         closeWebDriver();

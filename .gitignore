@@ -33,7 +33,7 @@ logs/
 target/
 .classpath
 .project
-.settings/org.eclipse.buildship.core.prefs
+.settings/org.eclipse.buildship.testsUI.core.prefs
 .vscode
 /gradlew
 /gradlew.bat
